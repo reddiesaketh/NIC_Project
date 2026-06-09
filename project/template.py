@@ -269,7 +269,7 @@ async function login() {
   errEl.style.display = 'none';
   if (!username || !password) { showError(errEl, 'Please enter credentials.'); return; }
   try {
-    const res = await fetch(`${API_USERS}/token/`, {
+    const res = await fetch(`${API_USERS}/login/`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ username, password })
@@ -789,7 +789,7 @@ async function openCreateSystem() {
       <div class="form-group"><label>IP Address</label><input id="sf-ip" placeholder="192.168.1.1" /></div>
       <div class="form-group"><label>MAC Address</label><input id="sf-mac" placeholder="AA:BB:CC:DD:EE:FF" /></div>
       <div class="form-group"><label>OS</label><select id="sf-os"><option value="">Select</option><option value="WINDOWS">Windows</option><option value="LINUX">Linux</option><option value="MACOS">macOS</option><option value="OTHER">Other</option></select></div>
-      <div class="form-group"><label>Domain Username</label><input id="sf-domain" placeholder="domain\\user" /></div>
+      <div class="form-group"><label>Domain Username</label><input id="sf-domain" placeholder="DOMAIN-USER" /></div>
     </div>`;
   document.getElementById('modal-footer').innerHTML = `<button class="btn btn-outline btn-sm" onclick="closeModal()">Cancel</button><button class="btn btn-primary btn-sm" onclick="createSystem()">Add</button>`;
   openModal();
